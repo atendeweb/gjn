@@ -1,427 +1,592 @@
-<html lang="pt-BR" class="no-js">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gráfica JN - Feira de Santana - Gráfica</title>
-    <meta name="description" content="{{ site.description }}"/>
-    <meta name="keywords" content="{{ site.keywords }}"/>
-    <meta name="author" content="{{ site.author }}"/>
-    <link rel="shortcut icon" href="https://jnconviteria.com.br/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="https://jnconviteria.com.br/css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="https://jnconviteria.com.br/fonts/font-awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" type="text/css" href="https://jnconviteria.com.br/css/modern-blog.css"/>
-    <!--[if IE]>
-    <script type="text/javascript" src="js/vendors/html5.min.js"></script>
-    <![endif]-->
-    <script>
-        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-            var root = document.getElementsByTagName('html')[0];
-            root.setAttribute('class', 'ff');
-        }
-    </script>
-	<style>
-	
-	/* Garante que o container do título tenha posição relativa */
-.card__caption {
-    position: relative;
-    padding-right: 60px; /* Espaço para o botão */
-    z-index: 10; /* Camada base */
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gráfica JN — Feira de Santana</title>
+<meta name="description" content="{{ site.description }}"/>
+<meta name="keywords" content="{{ site.keywords }}"/>
+<meta name="author" content="{{ site.author }}"/>
+<link rel="shortcut icon" href="https://jnconviteria.com.br/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper: #ECE8DD;
+  --paper-dim: #E1DCCC;
+  --ink: #201D17;
+  --ink-soft: #504A3D;
+  --red: #B93B2C;
+  --red-dim: #8f2c20;
+  --mustard: #C99A34;
+  --line: #CFC8B4;
+  --line-strong: #B9B29A;
+  --measure: 66ch;
 }
 
-/* Estilo do botão WhatsApp com prioridade máxima */
-.whatsapp-btn {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #25D366;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    z-index: 1000; /* Valor alto para garantir sobreposição */
-    pointer-events: auto; /* Garante que é clicável */
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Work Sans', -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Efeito hover */
-.whatsapp-btn:hover {
-    background-color: #128C7E;
-    transform: translateY(-50%) scale(1.1);
+h1, h2, h3{
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  margin: 0;
+  color: var(--ink);
 }
 
-/* Garante que o texto do título não sobreponha */
-.card__title, .card__subtitle {
-    position: relative;
-    z-index: 5; /* Abaixo do botão */
-    max-width: calc(100% - 70px); /* Espaço para o botão */
+a{ color: inherit; }
+
+img{ max-width: 100%; display: block; }
+
+.wrap{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
-	
-	</style>
+/* -------------------- header -------------------- */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand img{ height: 34px; width: auto; }
+
+.brand span{
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+.main-nav{
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.main-nav a{
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.main-nav a:hover{ color: var(--ink); border-color: var(--red); }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: #F7F3E8;
+  text-decoration: none;
+  padding: 11px 20px;
+  font-size: 0.92rem;
+  border: 1px solid var(--red);
+  transition: background .2s ease, color .2s ease;
+}
+
+.btn:hover{ background: var(--red-dim); border-color: var(--red-dim); }
+
+.btn.ghost{
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.btn.ghost:hover{ background: var(--ink); color: var(--paper); }
+
+/* -------------------- hero -------------------- */
+
+.hero{
+  position: relative;
+  padding: 96px 0 88px;
+  overflow: hidden;
+}
+
+.hero .wrap{
+  display: grid;
+  grid-template-columns: 1.05fr 0.85fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero h1{
+  font-size: clamp(2.6rem, 4.6vw, 3.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 em{
+  font-style: italic;
+  color: var(--red);
+}
+
+.hero p.lede{
+  margin: 26px 0 34px;
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: 1.12rem;
+}
+
+.hero .actions{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-visual{
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--paper-dim);
+  border: 1px solid var(--line-strong);
+}
+
+.hero-visual img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.92;
+}
+
+.reg-mark{
+  position: absolute;
+  width: 26px;
+  height: 26px;
+}
+
+.reg-mark svg{ width: 100%; height: 100%; }
+
+.reg-mark.tl{ top: -13px; left: -13px; }
+.reg-mark.tr{ top: -13px; right: -13px; }
+.reg-mark.bl{ bottom: -13px; left: -13px; }
+.reg-mark.br{ bottom: -13px; right: -13px; }
+
+.hero-visual figcaption{
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* -------------------- section shell -------------------- */
+
+section{ padding: 88px 0; }
+
+.section-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 46px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 26px;
+}
+
+.section-head h2{
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+
+.section-head p{
+  max-width: 34ch;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+/* -------------------- product list -------------------- */
+
+.products{ background: var(--paper-dim); }
+
+.product-row{
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.product-row:first-of-type{ border-top: 1px solid var(--line); }
+
+.product-thumb{
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+}
+
+.product-thumb img{ width: 100%; height: 100%; object-fit: cover; }
+
+.product-info h3{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.product-info p{
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
+.product-row .quote{
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.product-row .quote:hover{ color: var(--red); border-color: var(--red); }
+
+/* -------------------- about / seo -------------------- */
+
+.about .wrap{ max-width: 900px; }
+
+.about .intro{
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 30ch;
+  margin-bottom: 40px;
+  color: var(--ink);
+}
+
+.about-columns{
+  column-count: 2;
+  column-gap: 48px;
+  color: var(--ink-soft);
+}
+
+.about-columns h2{
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 26px 0 10px;
+  break-after: avoid;
+}
+
+.about-columns p{
+  margin: 0 0 16px;
+  font-size: 0.98rem;
+}
+
+.about-columns strong{ color: var(--ink); font-weight: 600; }
+
+/* -------------------- contact strip -------------------- */
+
+.contact{
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.contact .wrap{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact h2{
+  color: var(--paper);
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  max-width: 14ch;
+}
+
+.contact p{
+  color: #C9C3B0;
+  max-width: 42ch;
+  margin: 18px 0 30px;
+}
+
+.contact-details{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-details a{
+  text-decoration: none;
+  color: var(--paper);
+  font-size: 1.02rem;
+  border-bottom: 1px solid rgba(247,243,232,0.25);
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-details a span.label{ color: #9B9481; font-size: 0.85rem; }
+
+/* -------------------- footer -------------------- */
+
+footer{
+  background: var(--ink);
+  border-top: 1px solid rgba(247,243,232,0.12);
+  color: #9B9481;
+  font-size: 0.86rem;
+}
+
+footer .wrap{
+  padding: 26px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer a{ color: #C9C3B0; text-decoration: none; }
+footer a:hover{ color: var(--paper); }
+
+/* -------------------- responsive -------------------- */
+
+@media (max-width: 860px){
+  .hero .wrap{ grid-template-columns: 1fr; }
+  .hero-visual{ order: -1; aspect-ratio: 16/10; }
+  .main-nav{ display: none; }
+  .about-columns{ column-count: 1; }
+  .contact .wrap{ grid-template-columns: 1fr; }
+  .product-row{ grid-template-columns: 64px 1fr; }
+  .product-row .quote{ grid-column: 1 / -1; justify-self: start; margin-top: 4px; }
+  .product-thumb{ width: 64px; height: 64px; }
+  section{ padding: 64px 0; }
+}
+</style>
 </head>
-<body class="body">
-<div class="container">
-    <header class="header">
-	<img src="https://jnconviteria.com.br/img/logo.png" width="100">
-        <h1>Gráfica JN<span>Feira de Santana BA</span></h1>
-        <nav class="links">
-            <nav class="links">
-				<a href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20da%20Gráfica%20JN" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp fa-3x"></i></a>
-				<a href="https://www.google.com/maps?sca_esv=adde10145c0e0ebd&hl=pt-PT&iflsig=AOw8s4IAAAAAaJTT5XRiqeoZZWkvYx9BgHsZgdBvwcEU&uact=5&gs_lp=Egdnd3Mtd2l6Ig1qbiBjb252aXRlcmlhMgUQABiABDIFEAAYgAQyBhAAGBYYHjICECYyBRAAGO8FMgUQABjvBTIFEAAY7wUyBRAAGO8FSLUMULYEWPQLcAB4AJABAJgBmgKgAe8HqgEDMi00uAEDyAEA-AEBmAIEoAKjCKgCCsICEBAAGIAEGEMYtAIYigUY6gLCAhIQABiABBhDGLQCGIoFGOoCGArCAhoQABiABBi0AhjUAxjlAhi3AxiKBRjqAhiKA8ICEBAuGIAEGNEDGEMYxwEYigXCAgsQLhiABBjRAxjHAZgD4AHxBalyTAmM-j4GkgcDMi00oAfsFrIHAzItNLgHowjCBwUyLTEuM8gHKw&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KaXao912NxQHMa468ueXAMiS&daddr=R.+Rio+Amazonas,+260+-+Capuchinhos,+Feira+de+Santana+-+BA,+44076-300" title="Google Maps"><i class="fa fa-map-marker fa-3x"></i></a>
-				<a href="https://www.instagram.com/jnconviteria/" target="_blank" title="Instagram"><i class="fa fa-instagram fa-3x"></i></a>
-				<a href="https://www.facebook.com/jnconviteria/?locale=pt_BR" target="_blank" title="Facebook"><i class="fa fa-facebook-square fa-3x"></i></a>
+<body>
 
-			</nav>
-        </nav>
-    </header>
-    <div class="content">
-        <!-- trianglify pattern container -->
-        <div class="pattern pattern--hidden"></div>
-        <!-- cards -->
-        <div class="wrapper">
-            <!-- Press Kit -->
-            <div class="card" data-id="presskit">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/convites.jpg" alt="Press Kit" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Convites</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição de Convites</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="https://jnconviteria.com.br/img/logo.png" alt="Gráfica JN">
+      <span>Gráfica JN</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a class="btn" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20da%20Gráfica%20JN" style="color:#fff; padding:5px 10px 10px 10px;" target="_blank">Pedir orçamento</a>
+    </nav>
+  </div>
+</header>
 
-            <!-- Caixas Cartonadas -->
-            <div class="card" data-id="caixascartonadas">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/caixascartonadas.jpg" alt="Caixas Cartonadas" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Press Kit/Caixas Cartonadas</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição das Caixas Cartonadas</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<main id="top">
 
-            <!-- Porta Certificado -->
-            <div class="card" data-id="portacertificado">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/portacertificado.jpg" alt="Porta Certificado" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Porta Certificado</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição do Porta Certificado</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pulseira -->
-            <div class="card" data-id="pulseiras">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/ingressos.jpg" alt="Pulseira" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Ingressos</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição da Ingressos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Placa de Homenagem -->
-            <div class="card" data-id="placahomenagem">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/placahomenagem.jpg" alt="Placa de Homenagem" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Placa de Homenagem</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição da Placa de Homenagem</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dissertação e Monografia -->
-            <div class="card" data-id="monografia">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/Monografia.jpg" alt="Dissertação e Monografia" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Tese, Dissertação e Monografia</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição de Dissertação e Monografia</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Crachá -->
-            <div class="card" data-id="cracha">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/Crachá.jpg" alt="Crachá" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Crachá</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição do Crachá</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cordão -->
-            <div class="card" data-id="cordao">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/Cordao.jpg" alt="Cordão" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Cordão</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição do Cordão</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pulseiras Atendimentos -->
-            <div class="card" data-id="pulseiras-atendimento">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/Pulseiras-Atendimento.jpg" alt="Pulseiras Atendimentos" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Pulseiras de Atendimento</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição das Pulseiras de Atendimento</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Livros -->
-            <div class="card" data-id="livros">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/Livros.jpg" alt="Livros" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Livros</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição dos Livros</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Broches -->
-            <div class="card" data-id="broches">
-                <div class="card__container card__container--closed">
-                    <div class="card__image-container">
-                        <img src="https://jnconviteria.com.br/img/Broches.jpg" alt="Broches" class="card__image">
-                    </div>
-                    <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
-                        <div class="card__caption">
-                            <h2 class="card__title">Broches</h2>
-                            <p class="card__subtitle">Feira de Santana BA</p>
-                        </div>
-                        <div class="card__copy">
-                            <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
-                                <span class="meta__author">Gráfica JN</span>
-                                <span class="meta__date">Confecção e Impressão</span>
-                            </div>
-                            <p>Descrição dos Broches</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /cards -->
-			
-			
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Cada peça, <em>impressa</em><br>com o cuidado que merece.</h1>
+        <p class="lede">Gráfica em Feira de Santana especializada em convites, itens de cerimonial e materiais corporativos — do arquivo à entrega, sem etapa perdida no caminho.</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20da%20Gráfica%20JN" target="_blank">Pedir orçamento pelo WhatsApp</a>
+          <a class="btn ghost" href="#produtos">Ver produtos</a>
         </div>
-		
-		<div class="seo-content" style="width:90%; margin:auto;">
-    <h1>Gráfica JN - Referência em Serviços Gráficos em Feira de Santana</h1>
-    
-    <p>A <strong>Gráfica JN</strong> é a principal referência em <strong>Feira de Santana</strong> para serviços gráficos completos e impressões de alta qualidade. Especializados em <strong>Press Kit, Caixas Cartonadas, Porta Certificado, Pulseira, Placa de Homenagem, Tese, Dissertação e Monografia, Crachá, Cordão, Pulseiras de Atendimento, Livros, Ingressos e Broches</strong>, atendemos às necessidades de eventos, aniversários, casamentos e empresas com excelência.</p>
-
-    <h2>Soluções Gráficas Personalizadas</h2>
-    
-    <p>Nossa gráfica em <strong>Feira de Santana</strong> oferece produtos premium para todas as ocasiões. Desde <strong>Caixas Cartonadas</strong> elegantes para presentear até <strong>Placas de Homenagem</strong> personalizadas para reconhecimento profissional, cada peça é produzida com materiais duráveis e impressão de alta resolução.</p>
-
-    <h2>Produtos para Eventos e Corporativos</h2>
-    
-    <p>Desenvolvemos <strong>Pulseiras</strong> para controle de acesso em eventos, <strong>Crachás</strong> e <strong>Cordões</strong> profissionais para empresas, além de <strong>Ingressos</strong> personalizados para festas e shows. Nossos <strong>Broches</strong> e materiais promocionais são ideais para ações de marketing e divulgação.</p>
-
-    <h2>Excelência Acadêmica e Profissional</h2>
-    
-    <p>Para o meio acadêmico, produzimos <strong>Teses, Dissertações e Monografias</strong> com acabamento impecável, além de <strong>Livros</strong> e materiais didáticos. Nossos <strong>Porta Certificados</strong> garantem apresentação profissional para documentos importantes.</p>
-
-    <p>Conte com a <strong>Gráfica JN</strong> em <strong>Feira de Santana</strong> para todas suas necessidades gráficas: desde itens para eventos sociais como casamentos e aniversários, até soluções corporativas completas com a melhor qualidade de impressão da região.</p>
-</div><br><br>
-		
+      </div>
+      <figure class="hero-visual">
+        <div class="reg-mark tl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#201D17" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="#201D17" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="#201D17" stroke-width="1"/></svg></div>
+        <div class="reg-mark tr"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#201D17" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="#201D17" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="#201D17" stroke-width="1"/></svg></div>
+        <div class="reg-mark bl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#201D17" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="#201D17" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="#201D17" stroke-width="1"/></svg></div>
+        <div class="reg-mark br"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#201D17" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="#201D17" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="#201D17" stroke-width="1"/></svg></div>
+        <img src="https://jnconviteria.com.br/img/convites.jpg" alt="Convites produzidos pela Gráfica JN">
+        <figcaption>Convites — prova de cor conferida antes da tiragem</figcaption>
+      </figure>
     </div>
-    <!-- /container -->
-</div>
+  </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Número correto (sem espaços, com código do país)
-    const whatsappNumber = '5575992428000';
-    
-    // 2. Função corrigida para criar o botão
-    function createWhatsAppButton(title) {
-        const message = `Olá, vim pelo site e gostaria de orçamento para "${title}"`;
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-        
-        const btn = document.createElement('a');
-        btn.href = whatsappUrl;
-        btn.className = 'whatsapp-btn';
-        btn.innerHTML = '<i class="fa fa-whatsapp"></i>';
-        btn.title = 'Solicitar orçamento';
-        
-        // 3. Garante que abre em nova aba
-        btn.setAttribute('target', '_blank');
-        btn.setAttribute('rel', 'noopener noreferrer');
-        
-        return btn;
-    }
-    
-    // 4. Adiciona a cada card (verificando se o título existe)
-    document.querySelectorAll('.card__caption').forEach(caption => {
-        const titleElement = caption.querySelector('.card__title');
-        if (titleElement) {
-            const title = titleElement.textContent;
-            const whatsappBtn = createWhatsAppButton(title);
-            caption.appendChild(whatsappBtn);
-        }
-    });
-});
-</script>
+  <section class="products" id="produtos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>O que produzimos</h2>
+        <p>Onze linhas de produto, todas confeccionadas e impressas na própria gráfica em Feira de Santana.</p>
+      </div>
 
-<!-- JS -->
-<script src="js/vendors/trianglify.min.js"></script>
-<script src="js/vendors/TweenMax.min.js"></script>
-<script src="js/vendors/ScrollToPlugin.min.js"></script>
-<script src="js/vendors/cash.min.js"></script>
-<script src="js/card-modern-blog.js"></script>
-<script src="js/modern-blog.js"></script>
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/convites.jpg" alt="Convites"></div>
+        <div class="product-info">
+          <h3>Convites</h3>
+          <p>Convites para casamento, aniversário e eventos corporativos, com papel e acabamento à sua escolha.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Convites%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/caixascartonadas.jpg" alt="Caixas Cartonadas"></div>
+        <div class="product-info">
+          <h3>Press Kit / Caixas Cartonadas</h3>
+          <p>Caixas cartonadas personalizadas para kits de imprensa, presentes e materiais de divulgação.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Caixas%20Cartonadas%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/portacertificado.jpg" alt="Porta Certificado"></div>
+        <div class="product-info">
+          <h3>Porta Certificado</h3>
+          <p>Porta-certificados para formaturas e eventos acadêmicos, com apresentação profissional.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Porta%20Certificado%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/ingressos.jpg" alt="Ingressos"></div>
+        <div class="product-info">
+          <h3>Ingressos</h3>
+          <p>Ingressos numerados para festas, shows e eventos, com controle de acesso e segurança.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Ingressos%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/placahomenagem.jpg" alt="Placa de Homenagem"></div>
+        <div class="product-info">
+          <h3>Placa de Homenagem</h3>
+          <p>Placas personalizadas para reconhecimento profissional e homenagens em eventos.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Placa%20de%20Homenagem%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/Monografia.jpg" alt="Tese, Dissertação e Monografia"></div>
+        <div class="product-info">
+          <h3>Tese, Dissertação e Monografia</h3>
+          <p>Impressão e encadernação de trabalhos acadêmicos, com acabamento impecável.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Tese,%20Dissertação%20e%20Monografia%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/Crachá.jpg" alt="Crachá"></div>
+        <div class="product-info">
+          <h3>Crachá</h3>
+          <p>Crachás de identificação para empresas e eventos, com opções de acabamento.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Crachá%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/Cordao.jpg" alt="Cordão"></div>
+        <div class="product-info">
+          <h3>Cordão</h3>
+          <p>Cordões personalizados para crachás e credenciais de eventos e empresas.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Cordão%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/Pulseiras-Atendimento.jpg" alt="Pulseiras de Atendimento"></div>
+        <div class="product-info">
+          <h3>Pulseiras de Atendimento</h3>
+          <p>Pulseiras para controle de acesso e identificação de público em eventos.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Pulseiras%20de%20Atendimento%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/Livros.jpg" alt="Livros"></div>
+        <div class="product-info">
+          <h3>Livros</h3>
+          <p>Impressão e encadernação de livros e materiais didáticos.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Livros%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+      <div class="product-row">
+        <div class="product-thumb"><img src="https://jnconviteria.com.br/img/Broches.jpg" alt="Broches"></div>
+        <div class="product-info">
+          <h3>Broches</h3>
+          <p>Broches personalizados para ações de marketing e divulgação de marca.</p>
+        </div>
+        <a class="quote" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20orçamento%20para%20%22Broches%22" target="_blank">Solicitar orçamento</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="sobre">
+    <div class="wrap">
+      <p class="intro">Referência em Feira de Santana para serviços gráficos completos e impressões de alta qualidade.</p>
+
+      <div class="about-columns">
+        <h2>Soluções gráficas personalizadas</h2>
+        <p>A <strong>Gráfica JN</strong> é a principal referência em <strong>Feira de Santana</strong> para serviços gráficos completos e impressões de alta qualidade. Especializados em <strong>Press Kit, Caixas Cartonadas, Porta Certificado, Pulseira, Placa de Homenagem, Tese, Dissertação e Monografia, Crachá, Cordão, Pulseiras de Atendimento, Livros, Ingressos e Broches</strong>, atendemos às necessidades de eventos, aniversários, casamentos e empresas com excelência.</p>
+        <p>Nossa gráfica em <strong>Feira de Santana</strong> oferece produtos premium para todas as ocasiões. Desde <strong>Caixas Cartonadas</strong> elegantes para presentear até <strong>Placas de Homenagem</strong> personalizadas para reconhecimento profissional, cada peça é produzida com materiais duráveis e impressão de alta resolução.</p>
+
+        <h2>Produtos para eventos e corporativos</h2>
+        <p>Desenvolvemos <strong>Pulseiras</strong> para controle de acesso em eventos, <strong>Crachás</strong> e <strong>Cordões</strong> profissionais para empresas, além de <strong>Ingressos</strong> personalizados para festas e shows. Nossos <strong>Broches</strong> e materiais promocionais são ideais para ações de marketing e divulgação.</p>
+
+        <h2>Excelência acadêmica e profissional</h2>
+        <p>Para o meio acadêmico, produzimos <strong>Teses, Dissertações e Monografias</strong> com acabamento impecável, além de <strong>Livros</strong> e materiais didáticos. Nossos <strong>Porta Certificados</strong> garantem apresentação profissional para documentos importantes.</p>
+        <p>Conte com a <strong>Gráfica JN</strong> em <strong>Feira de Santana</strong> para todas suas necessidades gráficas: desde itens para eventos sociais como casamentos e aniversários, até soluções corporativas completas com a melhor qualidade de impressão da região.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="wrap">
+      <div>
+        <h2>Vamos colocar sua ideia no papel.</h2>
+        <p>Envie as referências do que você precisa e recebemos um orçamento sob medida, com prazo de produção definido antes de começar.</p>
+        <a class="btn" href="https://wa.me/5575992428000?text=Olá,%20vim%20pelo%20site%20da%20Gráfica%20JN" target="_blank">Falar no WhatsApp</a>
+      </div>
+      <div class="contact-details">
+        <a href="https://wa.me/5575992428000" target="_blank"><span class="label">WhatsApp</span> (75) 99242-8000</a>
+        <a href="https://www.google.com/maps?sca_esv=adde10145c0e0ebd&hl=pt-PT&iflsig=AOw8s4IAAAAAaJTT5XRiqeoZZWkvYx9BgHsZgdBvwcEU&uact=5&gs_lp=Egdnd3Mtd2l6Ig1qbiBjb252aXRlcmlhMgUQABiABDIFEAAYgAQyBhAAGBYYHjICECYyBRAAGO8FMgUQABjvBTIFEAAY7wUyBRAAGO8FSLUMULYEWPQLcAB4AJABAJgBmgKgAe8HqgEDMi00uAEDyAEA-AEBmAIEoAKjCKgCCsICEBAAGIAEGEMYtAIYigUY6gLCAhIQABiABBhDGLQCGIoFGOoCGArCAhoQABiABBi0AhjUAxjlAhi3AxiKBRjqAhiKA8ICEBAuGIAEGNEDGEMYxwEYigXCAgsQLhiABBjRAxjHAZgD4AHxBalyTAmM-j4GkgcDMi00oAfsFrIHAzItNLgHowjCBwUyLTEuM8gHKw&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KaXao912NxQHMa468ueXAMiS&daddr=R.+Rio+Amazonas,+260+-+Capuchinhos,+Feira+de+Santana+-+BA,+44076-300" target="_blank"><span class="label">Endereço</span> R. Rio Amazonas, 260 — Capuchinhos, Feira de Santana</a>
+        <a href="https://www.instagram.com/jnconviteria/" target="_blank"><span class="label">Instagram</span> @jnconviteria</a>
+        <a href="https://www.facebook.com/jnconviteria/?locale=pt_BR" target="_blank"><span class="label">Facebook</span> /jnconviteria</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Gráfica JN — Feira de Santana, BA</span>
+    <a href="#top">Voltar ao topo</a>
+  </div>
+</footer>
+
 </body>
 </html>
